@@ -50,8 +50,9 @@ var gutil = require('gulp-util'),
 				} else if (options.appendType === 'guid') {
 					shortId = new ShortId();
 					version = shortId.next();
-				}
-				else {
+				} else if (options.versionNum) {
+					version = options.versionNum;
+				} else {
 					if (options.versionFile) {
 						pJson = appRoot.require(options.versionFile)
 					} else {
